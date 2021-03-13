@@ -1,0 +1,30 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigator 
+
+<CascadingAuthenticationState>
+    <AuthorizeView>
+        <Authorized>
+            <div class="page">
+                <div class="sidebar">
+                    <NavMenu />
+                </div>
+
+                <div class="main">
+                    <div class="top-row px-4">
+                        <p><a href="" @onclick:preventDefault @onclick="@(() => Navigator.NavigateTo("/api/auth/signout", true))">Log out</a></p>
+                    </div>
+
+                    <div class="content px-4">
+                        @Body
+                    </div>
+                </div>
+            </div>
+        </Authorized>
+        <NotAuthorized>
+            <div style="margin: 0 auto; margin-top: 50px">
+                <BlazorCookie.Components.LoginComponent />
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+
