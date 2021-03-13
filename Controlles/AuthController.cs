@@ -14,11 +14,6 @@ namespace BlazorCookie.Controlles
     [AllowAnonymous]
     public class AuthController : Controller
     {
-        public AuthController()
-        {
-
-        }
-
         [HttpPost("signIn")]
         public async Task<IActionResult> SignIn([FromBody]LoginArgs loginArgs)
         {

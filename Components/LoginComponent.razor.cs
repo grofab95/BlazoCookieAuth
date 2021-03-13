@@ -2,6 +2,7 @@
 using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using Radzen;
+using Serilog;
 using System;
 using System.Linq;
 using System.Net.Http;
@@ -43,7 +44,7 @@ namespace BlazorCookie.Components
             }
             catch (Exception ex)
             {
-
+                Log.Error(ex.Message);
             }
         }
     }
